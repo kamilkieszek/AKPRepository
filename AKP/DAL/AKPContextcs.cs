@@ -45,8 +45,6 @@ namespace AKP.DAL
         {
             Database.SetInitializer<AKPContext>(null);
             base.OnModelCreating(modelBuilder);
-            // Wyłącza konwencję, która automatycznie tworzy liczbę mnogą dla nazw tabel w bazie danych
-            // Zamiast Kategorie zostałaby stworzona tabela o nazwie Kategories
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
