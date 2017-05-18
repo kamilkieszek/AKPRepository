@@ -1,0 +1,57 @@
+﻿<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/fontello.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+
+<body>
+    <div id="Container">
+        <div class="head"> A<span style="color: red">KP</span><i class="icon-user-pair"></i> </div>
+        <div class="LogNavi">
+            <div id="Log"> <i class="icon-user-pair"></i> </div>
+            <a href="@Url.Action("StaticPages", "Home", new { pagename = "O_firmie" })"><div class="Navi">O firmie</div></a>
+            <div class="Navi">Oferta</div>
+            <div class="Navi">Kontakt</div>
+            <div class="Navi">Twórcy</div>
+            <div class="Navi">Technologie</div>
+            <div class="NaviLog" style="background-color:white; width:180px; font-size:24px; padding-right:0px; margin-right:0px;">@Html.Partial("_PartialLogin")</div>
+            <div><i class="icon-login"></i></div>
+        </div>
+        <div class="LoginStaticPages">@RenderBody()</div>
+        <div id="Footer"><p>"Your time is limited. Don’t waste it living someone else’s life." - Steve Jobs</p><p>akp.pl &copy 2017</p></div>
+    </div>
+    @RenderSection("Scripts", required: false)
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var stickyNavTop = $('.LogNavi').offset().top;
+
+            var stickyNav = function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop > stickyNavTop) {
+                    $('.LogNavi').addClass('sticky');
+                } else {
+                    $('.LogNavi').removeClass('sticky');
+                }
+            };
+
+            stickyNav();
+
+            $(window).scroll(function () {
+                stickyNav();
+            });
+        });
+
+    </script>
+   
+</body>
+</html>

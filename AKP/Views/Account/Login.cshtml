@@ -1,0 +1,40 @@
+﻿@model AKP.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutStaticPages.cshtml";
+}
+<div style="text-align:center">
+<h2>Logowanie</h2>
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="login-error">
+        @Html.ValidationMessage("loginerror", "")
+    </div>
+    <br />
+    
+    @Html.LabelFor(m => m.Email, "Podaj adres e-mail: ")
+    @Html.TextBoxFor(m => m.Email)
+    <br />
+    @Html.ValidationMessageFor(m=>m.Email)
+    <br />
+    @Html.LabelFor(m => m.Password, "Podaj hasło: ")
+    @Html.PasswordFor(m => m.Password)
+    <br />
+    @Html.ValidationMessageFor(m => m.Password)
+    <br />
+    @Html.LabelFor(m=> m.RememberMe)
+    @Html.CheckBoxFor(m => m.RememberMe)
+    <input id="button" type="submit" value="Zaloguj"/>
+}
+</div>
+<div style="text-align:center">
+    <p>Nie masz jeszcze konta? <a href="@Url.Action("Register")">Zarejestruj się!</a></p>
+</div>
+@section Scripts
+{
+<script src="~/scripts/jquery-1.12.4.js"></script>
+<script src="~/scripts/jquery.validate.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+}

@@ -1,0 +1,14 @@
+
+.icon-comment { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe800;&nbsp;'); }
+.icon-chat { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe801;&nbsp;'); }
+.icon-user-pair { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe802;&nbsp;'); }
+.icon-celcius { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe803;&nbsp;'); }
+.icon-cloud-sun { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xe804;&nbsp;'); }
+.icon-login { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf02c;&nbsp;'); }
+.icon-comment-empty { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0e5;&nbsp;'); }
+.icon-html5 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf13b;&nbsp;'); }
+.icon-graduation-cap { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf19d;&nbsp;'); }
+.icon-user-plus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf234;&nbsp;'); }
+.icon-black-tie { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf27e;&nbsp;'); }
+.icon-facebook-squared { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf308;&nbsp;'); }
+.icon-linkedin-squared { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf30c;&nbsp;'); }

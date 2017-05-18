@@ -1,0 +1,27 @@
+﻿@model AKP.ViewModels.HolidayInfo
+@{
+    ViewBag.Title = "HolidayInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Dane urlopu pracownika: @Model.holiday.person.Name @Model.holiday.person.Surname</h1>
+<br />
+<table align="center">
+    <tr>
+        <th>Liczba dni urlopu</th>
+        <th>Dni wykorzystane</th>
+        <th>Dni pozostałe</th>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(m => m.holiday.NrOfDays)</td>
+        <td>@Html.DisplayFor(m => m.holiday.DaysSpend)</td>
+        <td>@Html.DisplayFor(m => m.holiday.DaysToUse)</td>
+    </tr>
+</table>
+<br />
+<h1>Rozliczenie urlopu pracownika: @Model.holiday.person.Name @Model.holiday.person.Surname </h1>
+@using (Html.BeginForm("HolidayUpdate", "Holiday", new { id = Model.holiday.HolidayId }, FormMethod.Post, new { }))
+{   <label>Wprowadź liczbę dni urlopu do rozliczenia:</label>
+    @Html.EditorFor(m => m.number)   
+    <input id="edit" value="Rozlicz" type="submit" />
+}

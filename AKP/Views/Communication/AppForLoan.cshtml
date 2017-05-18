@@ -1,0 +1,40 @@
+﻿@model AKP.ViewModels.AppForLoanViewModel
+@{
+    ViewBag.Title = "AppForLoan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wniosek o pożyczkę zakładową</h2>
+@using (Html.BeginForm("AppForLoanPost", "Communication", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <br />
+    <label>Wprowadź cel przeznaczenia pożyczki: </label>
+    <br />
+    @Html.EditorFor(m => m.Target)
+    <br />
+    <label>Ilość rat pożyczki: </label>
+    @Html.EditorFor(m => m.AmountOfInstallments)
+    <br />
+    <label>Kwota pożyczki: </label>
+    @Html.EditorFor(m => m.AmountOfLoan)
+    <br />
+    <label>Wprowadź dane (imię, nazwisko, pesel oraz pełny adres) poręczyciela</label>
+    <br />
+    @Html.EditorFor(m => m.Guarantor)
+    <br />
+    <input value="Kalkuluj" id="calculate" type="submit" name="command"/>
+    <input value="Wyślij" id="send" type="submit" name="command"/>
+}
+<br />
+<fieldset>
+    <dl>
+        <dt>
+            Łączna wartość kredytu wyniesie: @ViewBag.TotalLoan złotych.
+        </dt>
+        <dd>
+            Rata kredytu: @ViewBag.SumInstallment złotych.
+        </dd>
+    </dl>
+</fieldset>
+

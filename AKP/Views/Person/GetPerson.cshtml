@@ -1,0 +1,41 @@
+﻿@model AKP.ViewModels.PersonSearch
+
+@using System.Linq
+@{
+    ViewBag.Title = "GetPerson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Wyszukaj pracownika:</h1>
+
+@using (Html.BeginForm("GetPerson", "Person"))
+{
+<label>Podaj imię:</label><input id="name" name="name" type="text" required/>
+<br />
+<label>Podaj nazwisko:</label><input id="surname" name="surname" type="text" required/>
+<br />
+<input id="search" type="submit" value="Wyszukaj" />
+}
+
+    @foreach (var item in Model.persons)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndividualNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edycja", "EditPerson", new { id = item.PersonId }) |
+                @Html.ActionLink("Urlop", "HolidayInfo", "Holiday", new { id = item.PersonId }, null)
+                |
+                @Html.ActionLink("Wiadomość", "SendMessage", new { id = item.PersonId })
+            </td>
+        </tr>
+
+    }
+
+

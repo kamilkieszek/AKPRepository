@@ -1,0 +1,17 @@
+﻿@model AKP.ViewModels.MessageViewModel
+@{
+    ViewBag.Title = "GetMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wiadomość od: @Model.person.Name @Model.person.Surname</h2>
+<h2>Z dnia: @Model.message.Added</h2>
+<div>
+    Treść:
+    <p>
+        @Model.message.Content
+    </p>
+    @Html.ActionLink("Odpowiedz", "NewMessage", new { Model.person.Name})
+</div>
+
+

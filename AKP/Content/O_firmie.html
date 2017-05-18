@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang= "pl">
+<head>
+<meta charset="utf-8"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="css/fontello.css" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+
+<body>
+	<div id="Container">
+		<div class="head"> A<span style="color: red">KP</span><i class="icon-user-pair"></i> </div>
+		<div class="LogNavi">
+			<div id="Log"> <i class="icon-user-pair"></i> </div>
+			<a href="O_firmie"><div class="Navi">O firmie</div></a>
+			<div class="Navi">Oferta</div>
+			<div class="Navi">Kontakt</div>
+			<div class="Navi">Twórcy</div>
+			<div class="Navi">Technologie</div>
+			<div class="NaviLog" id= "log">Logowanie</div>
+			<div><i class="icon-login"></i></div>
+		</div>
+		<div class="ContentO_firmie">
+			<div class="TextO_firmie"> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur consequat lacus ac malesuada convallis. Phasellus venenatis diam ac est accumsan mattis. Phasellus consequat quam sit amet faucibus semper. Duis at odio semper, euismod nisi vitae, euismod orci. Vestibulum ut turpis ligula. Suspendisse eget ipsum quis nisl finibus congue. Pellentesque ullamcorper sit amet mi convallis fermentum. In elementum tortor est, sit amet ullamcorper nunc condimentum nec. Aliquam eu porta leo, sed cursus mi. Praesent volutpat, tellus ultricies finibus efficitur, nisl leo rutrum libero, vitae congue lacus magna eu orci. Vestibulum semper, ligula nec imperdiet aliquet, ex turpis dignissim neque, id finibus nulla elit sed ex. Nam pretium felis a vulputate mollis. Praesent elementum felis lorem, in euismod sem tincidunt eu. Donec a urna quis mi congue porta. Curabitur quis tempus leo.</p>
+			<p>Donec porta sagittis tellus, quis dictum nulla varius vel. Nam quis risus at sem ornare aliquam sed at erat. Nam efficitur, elit posuere malesuada eleifend, est augue imperdiet leo, sit amet congue velit erat ac turpis. Duis scelerisque urna ut turpis varius, vel lacinia enim pulvinar. Ut sollicitudin convallis dui, vitae molestie velit pharetra id. Morbi euismod faucibus diam, quis tristique neque fringilla vel. In euismod, lorem vel euismod facilisis, ante velit volutpat ex, et convallis est est id velit. Nulla mollis sagittis purus, sed ullamcorper purus convallis sed. Sed ut pharetra est. Maecenas ac bibendum ligula, consequat elementum ante. Vivamus porta sapien et aliquam dapibus. Suspendisse pellentesque elit vel lacus aliquam posuere.</p>
+			</div>
+			<div class="photoO_firmie">
+			<img src="Img/o_firmie.jpg" width=100% height=100%/>
+			</div>
+		</div>
+		<div class="More">
+			<div class="Moretext">Chcesz dowiedzieć się więcej...</div>
+			<div class="Morebutton">Usługi...</div>
+		</div>
+		<div id="Footer"><p>"Your time is limited. Don’t waste it living someone else’s life." - Steve Jobs</p><p>akp.pl &copy 2017</p></div>
+	</div>
+</body>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+   var stickyNavTop = $('.LogNavi').offset().top;
+
+   var stickyNav = function(){
+   var scrollTop = $(window).scrollTop();
+
+   if (scrollTop > stickyNavTop) { 
+      $('.LogNavi').addClass('sticky');
+   } else {
+      $('.LogNavi').removeClass('sticky');
+    }
+   };
+
+   stickyNav();
+
+   $(window).scroll(function() {
+      stickyNav();
+   });
+   });
+
+</script>
+</html>

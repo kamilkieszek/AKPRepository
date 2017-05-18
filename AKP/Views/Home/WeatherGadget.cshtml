@@ -1,0 +1,8 @@
+﻿@model AKP.ViewModels.WeatherGadgetViewModel
+<p> Miasto: @Model.City </p>
+<p><img src="@Url.Content(Model.Picture)" alt="" /></p>
+<p>Temperatura: @Model.Temp &#x2103</p>
+<p>Wiatr: @Model.Speed km/h</p>
+<p>Wilgotność: @Model.Humidity %</p>
+<p>Ciśnienie: @Model.Pressure</p>
+<p>Zachmurzenie: @Model.Clouds %</p>

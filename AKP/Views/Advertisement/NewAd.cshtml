@@ -1,0 +1,19 @@
+﻿@model AKP.Models.Ad
+@{
+    ViewBag.Title = "NewAd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tworzenie nowego ogłoszenia</h2>
+
+<div>
+    @using (Html.BeginForm("NewAdPost", "Advertisement"))
+    {
+        <p><label>Nazwa ogłoszenia:</label> @Html.TextBoxFor(x => x.Name)</p>
+        <p><label>Treść:</label> @Html.TextBoxFor(x => x.Content)</p>
+        <p><input id="button" type="submit" value="Utwórz" /></p>
+            
+    }
+</div>
+
+

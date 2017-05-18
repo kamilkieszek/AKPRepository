@@ -1,0 +1,38 @@
+﻿@model PagedList.IPagedList<AKP.Models.Message>
+
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Skrzynka Odbiorcza</h3>
+
+
+@foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Added)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                
+            </td>
+            <td>
+               
+            </td>
+            <td>
+                @Html.ActionLink("Wyświetl", "GetMessage", new { id = item.MessageId }) |
+                @Html.ActionLink("Usuń", "DeleteMessage", new { id = item.MessageId }, null)
+            </td>
+        </tr>
+        <br />
+    }
+<h5>Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount</h5>
+<p>
+    @Html.PagedListPager(Model, page => Url.Action("Inbox", new { page }))
+</p>

@@ -1,0 +1,24 @@
+﻿@model AKP.ViewModels.CommunicationViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Podanie</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <dl>
+            <dt>
+                Wybierz odpowiedni rodzaj podania:
+            </dt>
+            <dd>
+                @Html.DropDownListFor(x => x.Id, Model.TypeList)
+            </dd>
+        </dl>
+    </fieldset>
+
+    <input type="submit" value="Wybierz" />
+}
+

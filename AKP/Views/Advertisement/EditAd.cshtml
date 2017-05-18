@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "EditAd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edycja Ogłoszenia</h2>
+@using (Html.BeginForm("GetadbyId", "Advertisement"))
+{
+    <label>Podaj numer ogłoszenia:</label>
+    <input id="id" name="id" type="number" />
+    <input id="Button1" type="submit" value="Wybierz" />
+}

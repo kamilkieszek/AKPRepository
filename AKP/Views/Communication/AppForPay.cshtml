@@ -1,0 +1,17 @@
+﻿@model AKP.ViewModels.AppForPayViewModel
+@{
+    ViewBag.Title = "AppForPay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Formularz wniosku o wydanie zaświadczenia o wynagrodzeniu</h2>
+@using (Html.BeginForm("AppForPayPost", "Communication"))
+{
+    <label>Wybierz odpowiedni okres:</label>
+    @Html.EnumDropDownListFor(m => m.PeriodList)
+    <br /><label>Wybierz rodzaj opodatkowania</label>
+    @Html.EnumDropDownListFor(m => m.Rate)
+    <br />
+    <input type="submit" value="Wyślij"/>
+}
+

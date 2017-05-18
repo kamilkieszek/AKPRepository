@@ -1,0 +1,21 @@
+﻿@model AKP.Models.Person
+@{
+    ViewBag.Title = "NewPerson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Formularz dodawania nowego pracownika</h2>
+
+@using (Html.BeginForm("NewPersonPost", "Person", FormMethod.Post))
+{
+    <div id="login-error">
+        @Html.ValidationMessage("loginerror", "")
+        @Html.ValidationSummary()
+    </div>
+    @Html.EditorFor(m => m)
+    @Html.ValidationMessageFor(m => m)
+    <br />
+    <input id="Button1" type="submit" value="Zapisz" />
+    <br />
+}
+

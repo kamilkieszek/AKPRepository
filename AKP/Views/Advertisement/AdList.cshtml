@@ -1,0 +1,30 @@
+﻿@model PagedList.IPagedList<AKP.Models.Ad>
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "AdList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ogłoszenia</h2>
+@if (Model.Any())
+{
+<p>
+@foreach (var item in Model)
+{
+<h3>@Html.DisplayFor(m => item.Name)</h3>
+    @Html.DisplayFor(m => item.Content)
+}
+</p>
+
+<h5>Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount</h5>
+<p>
+    @Html.PagedListPager(Model, page => Url.Action("AdList", new { page }))
+</p>
+}
+else
+{
+<h5>Brak ogłoszeń!</h5>
+}

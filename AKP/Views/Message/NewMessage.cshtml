@@ -1,0 +1,27 @@
+﻿@model AKP.ViewModels.MessageViewModel
+@{
+    ViewBag.Title = "NewMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nowa Wiadomość</h2>
+
+    @using (Html.BeginForm("NewMessagePost", "Message"))
+    {
+        <label>Do:</label> @Html.TextBoxFor(m =>m.person.Name , new { id="Name", name="Name"})
+    <p><label>Treść:</label></p>
+    <p>@Html.TextBoxFor(m => m.message.Content)</p>
+    <input type="submit" value="Wyślij" id="button"/>
+    }
+@section NewMessage
+{
+    <script>
+ $(function () {
+ $("#Name").autocomplete({ source: '@Url.Action("GetEmailList")', minLength: 1 });
+ });
+    </script>
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+

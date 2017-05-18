@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "EmploymentCertificate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zaświadczenie o zatrudnieniu</h2>
+
+@using (Html.BeginForm("EmploymentCertificatePost", "Communication", FormMethod.Post))
+{
+    <label>Czy jesteś pewien, że chcesz złożyć wniosek o wydanie zaświadczenia o zatrudnieniu?</label>
+    <br/>
+    <input type="submit" value="Potwierdź" name="command" />
+    <input type="submit" value="Wróć" name="command"/>
+}

@@ -1,0 +1,13 @@
+﻿@model AKP.Models.Person
+@{
+    ViewBag.Title = "EditPerson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edycja danych pracownika o numerze: @Model.PersonId </h1>
+@using (Html.BeginForm("EditPersonPost", "Person"))
+{
+    @Html.EditorFor(m => m)
+    <input id="editbutton" type="submit" value="Zapisz"/>
+}
+

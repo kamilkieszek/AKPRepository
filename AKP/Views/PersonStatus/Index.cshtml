@@ -1,0 +1,30 @@
+﻿@model AKP.ViewModels.PersonStatusViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Twój status:</h2>
+<br />
+<fieldset>
+    <dl>
+        <dd>
+            Ilość przepracownych godzin w ostatnim miesiącu: @Model.HoursWorked
+        </dd>
+        <dd>
+            Stawka w zł: @Model.Rate
+        </dd>
+        <dd>
+            Ostatnia łączna wartość wynagrodzenia za ostatni miesiąc: @Model.TotalSalary
+        </dd>
+        <dd>
+            Liczba wykorzystanych dni urlopu: @Model.HolidayDaysSpend
+        </dd>
+        <dd>
+            Liczba pozostałych dni urlopu: @Model.HolidayDaysToUse
+        </dd>
+        <dd>
+            Aktualne pożyczki zakładowe: @Model.TotalLoan
+        </dd>
+    </dl>
+</fieldset>

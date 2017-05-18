@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <title>Aplikacja Kadrowo- Pracownicza</title>
+    <meta charset="utf-8" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/fontello.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script src="~/scripts/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    @RenderSection("NewMessage", required: false)
+    @RenderSection("AskForLeave", required: false)
+</head>
+
+<body>
+    <div id="Container">
+        <div class="head"> A<span style="color: red">KP</span><i class="icon-user-pair"></i> </div>
+        <div class="LogNavi">
+            <div id="Log"> <i class="icon-user-pair"></i> </div>
+            <a href="@Url.Action("StaticPages", "Home", new { pagename = "O_firmie" })"><div class="Navi">O firmie</div></a>
+            <div class="Navi">Oferta</div>
+            <div class="Navi">Kontakt</div>
+            <div class="Navi">Twórcy</div>
+            <div class="Navi">Technologie</div>
+            <div class="NaviLog" style="background-color:white; width:230px">@Html.Partial("_PartialLogin")</div>
+        </div>
+        <div id="Content">
+            <ol>
+                @if (User.IsInRole("Administrator"))
+                {<li>
+                    <a href="#">Panel Administratora</a>
+                    <ul>
+                        <li><a href="@Url.Action("NewAd", "Advertisement")">Dodaj Ogłoszenie</a></li>
+                        <li><a href="@Url.Action("EditAd", "Advertisement")">Edytuj Ogłoszenie</a></li>
+                        <li><a href="@Url.Action("NewPerson", "Person")">Dodaj Pracownika</a></li>
+                        <li><a href="@Url.Action("Edit", "Person")">Edytuj Pracownika</a></li>
+                    </ul>
+                </li>}
+                <li><a href="@Url.Action("AdList", "Advertisement")">Ogłoszenia</a></li>
+                <li>
+                    <a href="#">Wiadomości</a>
+                    <ul>
+                        <li><a href="@Url.Action("Inbox", "Message")">Skrzynka odbiorcza</a></li>
+                        <li><a href="@Url.Action("NewMessage", "Message")">Nowa wiadomość</a></li>
+                        <li><a href="@Url.Action("SendMessage", "Message")">Wysłane wiadomości</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("Index", "Communication")">Podania</a></li>
+                <li><a href="@Url.Action("Index", "PersonStatus")">Status</a></li>
+            </ol>
+            <div id="Work">
+                @RenderBody()
+            </div>
+            <div id="Accessories">
+                <div id="Weather">
+                    @Html.Action("WeatherGadget", "Home")
+                </div>
+                <div id="Currency">
+                    @Html.Action("ExchangeRateGadget", "Home")
+                </div>
+            </div>
+        </div>
+        <div id="Footer"><p>"Your time is limited. Don’t waste it living someone else’s life." - Steve Jobs</p><p>akp.pl &copy 2017</p></div>
+    </div>
+    @RenderSection("Scripts", required: false)
+    
+    <script>
+$(document).ready(function() {
+   var stickyNavTop = $('.LogNavi').offset().top;
+
+   var stickyNav = function(){
+   var scrollTop = $(window).scrollTop();
+
+   if (scrollTop > stickyNavTop) {
+      $('.LogNavi').addClass('sticky');
+   } else {
+      $('.LogNavi').removeClass('sticky');
+    }
+   };
+
+   stickyNav();
+
+   $(window).scroll(function() {
+      stickyNav();
+   });
+   });
+    </script>
+</body>
+
+</html>

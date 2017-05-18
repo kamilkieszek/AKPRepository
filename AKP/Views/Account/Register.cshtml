@@ -1,0 +1,41 @@
+﻿@model AKP.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutStaticPages.cshtml";
+}
+
+<div style="text-align:center">
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h2>Rejestracja nowego użytkownia</h2>
+        <div id="login-error">
+            @Html.ValidationMessage("loginerror", "")
+            @Html.ValidationSummary()
+        </div>
+        <br />
+
+        @Html.LabelFor(m => m.Email, "Podaj adres e-mail: ")
+        @Html.TextBoxFor(m => m.Email)
+        <br />
+        @Html.ValidationMessageFor(m => m.Email)
+        <br />
+        @Html.LabelFor(m => m.Password, "Podaj hasło: ")
+        @Html.PasswordFor(m => m.Password)
+        <br />
+        @Html.ValidationMessageFor(m => m.Password)
+        <br />
+        @Html.LabelFor(m => m.ConfirmPassword, "Potwierdź hasło: ")
+        @Html.PasswordFor(m => m.ConfirmPassword)
+        <br />
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        <br />
+        @Html.EditorFor(m => m.person)
+        <br />
+        <input id="button" type="submit" value="Zarejestruj" />
+    }
+</div>
+
+
+

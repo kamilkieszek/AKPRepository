@@ -1,0 +1,43 @@
+﻿@model AKP.ViewModels.HolidayViewModel
+@{
+    ViewBag.Title = "AskForLeave";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Wniosek o urlop</h2>
+
+@using (Html.BeginForm("AskForLeavePost", "Communication", FormMethod.Post))
+{
+    <div>@Html.ValidationSummary()
+    @Html.ValidationMessage("loginerror", "")</div>
+    <label>Wprowadź ilość dni urlopu: </label>
+    @Html.TextBoxFor(m => m.AmountOfDay, new {type = "number" })
+    <br/>
+    <label>Wprowadź datę początku urlopu</label>
+    @Html.TextBoxFor(m => m.From, new { @class = "from", type = "date"})
+    <br/>
+    <label>Wprowadź datę końca urlopu</label>
+    @Html.TextBoxFor(m => m.To, new { @class = "to", type = "date" })
+    <br/>
+    <input value="Wyślij" type="submit"/>
+}
+
+@section AskForLeave
+{
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(document).ready(function () {
+            $.validator.addMethod("to", function (value, element) {
+                var startDate = $('.from').val();
+                return Date.parse(startDate) <= Date.parse(value) || value == "";
+            }, "* Data początku urlopu musi być ustawiona jako wcześniejsza!");
+            $('#formId').validate();
+        });
+    });
+
+</script>
+    <script src="~/scripts/jquery-1.12.4.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+}

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE HTML>
+<html lang= "pl">
+<head>
+<meta charset="utf-8"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+<link href="css/fontello.css" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+</head>
+
+<body>
+    <div id="Container">
+        <div class="head"> A<span style="color: red">KP</span><i class="icon-user-pair"></i> </div>
+        <div class="LogNavi">
+            <div id="Log"> <i class="icon-user-pair"></i> </div>
+            <a href="O_firmie.html"><div class="Navi">O firmie</div></a>
+            <div class="Navi">Oferta</div>
+            <div class="Navi">Kontakt</div>
+            <div class="Navi">Twórcy</div>
+            <div class="Navi">Technologie</div>
+            <div class="NaviLog" id="log">Logowanie</div>
+            <div><i class="icon-login"></i></div>
+        </div>
+        <div id="Content">
+            <div id="AppOption">
+                <div class="OptionItem" id="AP">Panel Administratora</div>
+                <div class="OptionItem">Ogłoszenia</div>
+                <div class="OptionItem">Wiadomości</div>
+                <div class="OptionItem">Podania</div>
+                <div class="OptionItem">Status</div>
+                <div class="OptionItem">Plan zmian</div>
+            </div>
+            <div id="Work">
+                work
+            </div>
+            <div id="Accessories">
+                <div id="Weather">
+                    <p> Miasto: Toruń </p>
+                    <p><i class="icon-cloud-sun"></i></p>
+                    <p>Temperatura: 7 &#x2103</p>
+                    <p>Wiatr: 27 km/h</p>
+                    <p>Wilgotność: 83%</p>
+                    <p>Opady: brak</p>
+                    <p>Szansa opadów: 1%</p>
+
+                </div>
+                <div id="Currency">
+                    <p> Kursy walut: </p>
+                    <p> EUR: 4.3091 </p>
+                    <p> USD: 4.0789 </p>
+                    <p> CHF: 4.0488 </p>
+                    <p> GBP: 5.0816 </p>
+                </div>
+            </div>
+        </div>
+        <div id="Footer"><p>"Your time is limited. Don’t waste it living someone else’s life." - Steve Jobs</p><p>akp.pl &copy 2017</p></div>
+    </div>
+
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            var stickyNavTop = $('.LogNavi').offset().top;
+
+            var stickyNav = function () {
+                var scrollTop = $(window).scrollTop();
+
+                if (scrollTop > stickyNavTop) {
+                    $('.LogNavi').addClass('sticky');
+                } else {
+                    $('.LogNavi').removeClass('sticky');
+                }
+            };
+
+            stickyNav();
+
+            $(window).scroll(function () {
+                stickyNav();
+            });
+        });
+
+    </script>
+</body>
+</html>
